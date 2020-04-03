@@ -51,7 +51,7 @@ public:
 		close();
 	}
 
-	void write(Point &point){
+	void write(const Point &point){
 		for(int i = 0; i < attributes.size(); i++){
 
 			PointAttribute attribute = attributes[i];

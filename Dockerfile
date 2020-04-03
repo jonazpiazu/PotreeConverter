@@ -1,6 +1,12 @@
-FROM ubuntu:15.10
+FROM ubuntu:bionic
 
-RUN apt-get update && apt-get install -y g++ git cmake libboost-all-dev
+RUN apt-get update && \
+	apt-get install -y software-properties-common && \
+	add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
+ 	apt-get update && \
+ 	apt-get install -y g++-8 git cmake libboost-all-dev && \
+	update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 20
+
 RUN mkdir /data
 
 WORKDIR /data
